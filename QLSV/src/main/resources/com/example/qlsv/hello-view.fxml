@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="500" prefWidth="1150" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qlsv.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Students">
+            <content>
+              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="406.0" prefWidth="1050.0">
+                <Button layoutX="248.0" layoutY="336.0" mnemonicParsing="false" onAction="#student_DeleteButtonAction" prefHeight="26.0" prefWidth="50.0" text="Delete" />
+                <Button layoutX="20.0" layoutY="336.0" mnemonicParsing="false" onAction="#student_AddButtonAction" prefHeight="26.0" prefWidth="50.0" text="Add" />
+                <Label layoutX="20.0" layoutY="72.0" prefHeight="21.0" prefWidth="53.0" text="Name:" />
+                <Label layoutX="20.0" layoutY="110.0" prefHeight="21.0" prefWidth="87.0" text="Student ID:" />
+                <Label layoutX="20.0" layoutY="144.0" prefHeight="21.0" prefWidth="71.0" text="Gender:" />
+                <Label layoutX="20.0" layoutY="181.0" prefHeight="21.0" prefWidth="74.0" text="Birth Day:" />
+                <Label layoutX="20.0" layoutY="218.0" text="Year:" />
+                <Label layoutX="20.0" layoutY="257.0" prefHeight="21.0" prefWidth="123.0" text="Contact No." />
+                <Label layoutX="20.0" layoutY="300.0" prefHeight="18.0" prefWidth="76.0" text="Address:" />
+                <Separator layoutX="315.0" layoutY="24.0" orientation="VERTICAL" prefHeight="365.0" prefWidth="6.0" />
+                <Button layoutX="249.0" layoutY="377.0" mnemonicParsing="false" onAction="#student_SaveButtonAction" prefHeight="26.0" prefWidth="50.0" text="Save" />
+                <Label layoutX="20.0" layoutY="21.0" text="Registration Form">
+                   <font>
+                      <Font size="20.0" />
+                   </font>
+                </Label>
+                <TextField fx:id="student_nameText" layoutX="125.0" layoutY="67.0" prefHeight="26.0" prefWidth="175.0" />
+                <TextField fx:id="student_idText" layoutX="125.0" layoutY="105.0" prefWidth="175.0" />
+                <TextField fx:id="student_contactText" layoutX="125.0" layoutY="252.0" prefHeight="31.0" prefWidth="175.0" />
+                <DatePicker fx:id="student_birthPicker" editable="false" layoutX="124.0" layoutY="176.0" prefHeight="31.0" prefWidth="175.0" promptText="Select Date" />
+                <ChoiceBox fx:id="student_yearCB" layoutX="125" layoutY="213.0" prefHeight="31.0" prefWidth="175.0">
+                    <items>
+                         <FXCollections fx:factory="observableArrayList">
+                             <String fx:value="1" />
+                             <String fx:value="2" />
+                             <String fx:value="3" />
+                             <String fx:value="4" />
+                         </FXCollections>
+                    </items>
+                 </ChoiceBox>
+                <TextField fx:id="student_addressText" layoutX="125.0" layoutY="290.0" prefHeight="31.0" prefWidth="175.0" />
+                <TableView fx:id="student_tableView" layoutX="334.0" layoutY="67.0" prefHeight="338.0" prefWidth="720.0">
+                  <columns>
+                      <TableColumn fx:id="student_name_Col" prefWidth="125" text="Name" />
+                      <TableColumn fx:id="student_id_Col" prefWidth="125" text="Student ID" />
+                      <TableColumn fx:id="student_gender_Col" prefWidth="65.0" text="Gender" />
+                      <TableColumn fx:id="student_bd_Col" prefWidth="100.0" text="Birth Day" />
+                      <TableColumn fx:id="student_year_Col" prefWidth="50" text="Year" />
+                      <TableColumn fx:id="student_contact_Col" prefWidth="125" text="Contact No." />
+                      <TableColumn fx:id="student_address_Col" prefWidth="125" text="Address" />
+                  </columns>
+                </TableView>
+                <Button layoutX="794.0" layoutY="27.0" mnemonicParsing="false" onAction="#student_SearchButtonAction" prefHeight="26.0" prefWidth="55.0" text="Search" />
+                <Label layoutX="348.0" layoutY="30.0" text="Search by:">
+                   <font>
+                      <Font size="16.0" />
+                   </font>
+                </Label>
+                <ChoiceBox fx:id="student_searchCB" layoutX="621.0" layoutY="27.0" prefHeight="26.0" prefWidth="150.0">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="Name" />
+                         <String fx:value="Student ID" />
+                         <String fx:value="Gender" />
+                         <String fx:value="Birth Day" />
+                         <String fx:value="Year" />
+                         <String fx:value="Contact No." />
+                         <String fx:value="Address" />
+                     </FXCollections>
+                 </items>
+                </ChoiceBox>
+                 <TextField fx:id="student_searchText" layoutX="450.0" layoutY="27.0" prefHeight="26.0" prefWidth="150.0" />
+                 <Button layoutX="20.0" layoutY="376.0" mnemonicParsing="false" onAction="#student_LoadButtonAction" prefHeight="26.0" prefWidth="50.0" text="Load" />
+                  <ChoiceBox fx:id="student_genderCB" layoutX="124.0" layoutY="142.0" prefHeight="26.0" prefWidth="175.0">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Male" />
+                              <String fx:value="Female" />
+                          </FXCollections>
+                      </items>
+              </ChoiceBox>
+                     <Button layoutX="125.0" layoutY="376.0" mnemonicParsing="false" onAction="#student_ClearButtonAction" prefHeight="26.0" prefWidth="50.0" text="Clear" />
+                     <Button layoutX="125.0" layoutY="336.0" mnemonicParsing="false" onAction="#student_EditButtonAction" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Course">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="435.0" prefWidth="1102.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="10.0" text="Register for a course">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="280.0" layoutY="13.0" orientation="VERTICAL" prefHeight="380.0" prefWidth="0.0" />
+                        <Label layoutX="16.0" layoutY="103.0" text="Name" />
+                        <Label layoutX="16.0" layoutY="65.0" text="Student's ID" />
+                        <Label layoutX="15.0" layoutY="147.0" text="Semester" />
+                        <Label layoutX="16.0" layoutY="189.0" text="Course 1" />
+                        <Label layoutX="16.0" layoutY="228.0" text="Course 2" />
+                        <Label layoutX="16.0" layoutY="270.0" text="Course 3" />
+                        <Label layoutX="16.0" layoutY="312.0" text="Course 4" />
+                        <TextField fx:id="course_nameText" editable="false" layoutX="100.0" layoutY="98.0" prefHeight="26.0" prefWidth="150.0" />
+                        <TextField fx:id="course_idText" layoutX="99.0" layoutY="60.0" prefHeight="26.0" prefWidth="90.0" />
+                        <ChoiceBox fx:id="course_semesterCB" layoutX="101.0" layoutY="143.0" prefWidth="150.0">
+                             <items>
+                                 <FXCollections fx:factory="observableArrayList">
+                                     <String fx:value="1" />
+                                     <String fx:value="2" />
+                                     <String fx:value="3" />
+                                     <String fx:value="4" />
+                                     <String fx:value="5" />
+                                     <String fx:value="6" />
+                                     <String fx:value="7" />
+                                     <String fx:value="8" />
+                                 </FXCollections>
+                             </items>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="course_courseCB_1" layoutX="101.0" layoutY="185.0" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Math 1" />
+                                    <String fx:value="Math 2" />
+                                    <String fx:value="Math 3" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="course_courseCB_2" layoutX="102.0" layoutY="224.0" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Physics 1" />
+                                    <String fx:value="Physics 2" />
+                                    <String fx:value="Physics 3" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="course_courseCB_3" layoutX="101.0" layoutY="266.0" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Chemistry 1" />
+                                    <String fx:value="Chemistry 2" />
+                                    <String fx:value="Chemistry 3" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="course_courseCB_4" layoutX="101.0" layoutY="308.0" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="English 1" />
+                                    <String fx:value="English 2" />
+                                    <String fx:value="English 3" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <TableView fx:id="course_tableView" layoutX="308.0" layoutY="74.0" prefHeight="318.0" prefWidth="787.0">
+                          <columns>
+                            <TableColumn fx:id="course_name_Col" prefWidth="125" text="Name" />
+                            <TableColumn fx:id="course_id_Col" prefWidth="125" text="Student's ID" />
+                              <TableColumn fx:id="course_semester_Col" prefWidth="75" text="Semester" />
+                              <TableColumn fx:id="course_course1_Col" prefWidth="115.0" text="Course 1" />
+                              <TableColumn fx:id="course_course2_Col" prefWidth="115.0" text="Course 2" />
+                              <TableColumn fx:id="course_course3_Col" prefWidth="115.0" text="Course 3" />
+                              <TableColumn fx:id="course_course4_Col" prefWidth="115.0" text="Course 4" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="308.0" layoutY="25.0" text="Search by:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="737.0" layoutY="25.0" mnemonicParsing="false" onAction="#course_SearchButtonAction" text="Search" />
+                        <TextField fx:id="course_searchText" layoutX="397.0" layoutY="25.0" />
+                        <ChoiceBox fx:id="course_searchCB" layoutX="570.0" layoutY="25.0" prefWidth="150.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Name" />
+                                    <String fx:value="Student's ID" />
+                                    <String fx:value="Semester" />
+                                    <String fx:value="Course" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <Button layoutX="201.0" layoutY="380.0" mnemonicParsing="false" onAction="#course_SaveButtonAction" prefHeight="26.0" prefWidth="50.0" text="Save" />
+                        <Button layoutX="13.0" layoutY="342.0" mnemonicParsing="false" onAction="#course_AddButtonAction" prefHeight="26.0" prefWidth="50.0" text="Add" />
+                        <Button layoutX="13.0" layoutY="380.0" mnemonicParsing="false" onAction="#course_LoadButtonAction" prefHeight="26.0" prefWidth="50.0" text="Load" />
+                        <Button layoutX="201.0" layoutY="342.0" mnemonicParsing="false" onAction="#course_DeleteButtonAction" prefHeight="26.0" prefWidth="50.0" text="Delete" />
+                        <Button layoutX="101.0" layoutY="380.0" mnemonicParsing="false" onAction="#course_ClearButtonAction" prefHeight="26.0" prefWidth="50.0" text="Clear" />
+                        <Button layoutX="101.0" layoutY="343.0" mnemonicParsing="false" onAction="#course_EditButtonAction" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+                        <Button layoutX="198.0" layoutY="42.0" mnemonicParsing="false" onAction="#course_SearchSTButtonAction" prefHeight="46.0" prefWidth="52.0" text="Search" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Score">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="1102.0">
+                     <children>
+                        <TextField fx:id="score_idText" layoutX="3.0" layoutY="35.0" />
+                        <TextField fx:id="score_semesterText" layoutX="3.0" layoutY="85.0" />
+                        <Label layoutX="5.0" layoutY="15.0" prefHeight="20.0" prefWidth="87.0" text="Student' ID:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="65.0" text="Semester:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="179.0" layoutY="37.0" mnemonicParsing="false" onAction="#score_SearchCourseButtonAction" prefHeight="75.0" prefWidth="75.0" text="Search">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="271.0" layoutY="20.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="10.0" />
+                        <Label layoutX="2.0" layoutY="160.0" text="Course 1" />
+                        <Label layoutX="2.0" layoutY="195.0" text="Course 2" />
+                        <Label layoutX="2.0" layoutY="230.0" text="Course 3" />
+                        <Label layoutX="2.0" layoutY="265.0" text="Course 4" />
+                        <Label layoutX="8.0" layoutY="364.0" />
+                        <Button layoutY="338.0" mnemonicParsing="false" onAction="#score_AddButtonAction" prefHeight="26.0" prefWidth="50.0" text="Add" />
+                        <Button layoutX="97.0" layoutY="338.0" mnemonicParsing="false" onAction="#score_EditButtonAction" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+                        <Button layoutX="209.0" layoutY="379.0" mnemonicParsing="false" onAction="#score_SaveButtonAction" prefHeight="26.0" prefWidth="50.0" text="Save" />
+                        <TextField fx:id="score_course1Text" editable="false" layoutX="82.0" layoutY="155.0" prefHeight="26.0" prefWidth="125.0" />
+                        <TextField fx:id="score_course2Text" editable="false" layoutX="81.0" layoutY="190.0" prefHeight="26.0" prefWidth="125.0" />
+                        <TextField fx:id="score_course3Text" editable="false" layoutX="81.0" layoutY="225.0" prefHeight="26.0" prefWidth="125.0" />
+                        <TextField fx:id="score_course4Text" editable="false" layoutX="82.0" layoutY="260.0" prefHeight="26.0" prefWidth="125.0" />
+                        <TextField fx:id="score_score1Text" layoutX="217.0" layoutY="155.0" prefHeight="26.0" prefWidth="40.0" promptText="0.00" text="0.00" />
+                        <TextField fx:id="score_score2Text" layoutX="217.0" layoutY="190.0" prefHeight="26.0" prefWidth="40.0" promptText="0.00" text="0.00" />
+                        <TextField fx:id="score_score3Text" layoutX="217.0" layoutY="225.0" prefHeight="26.0" prefWidth="40.0" promptText="0.00" text="0.00" />
+                        <TextField fx:id="score_score4Text" layoutX="217.0" layoutY="260.0" prefHeight="0.0" prefWidth="40.0" promptText="0.00" text="0.00" />
+                        <TableView fx:id="score_tableView" layoutX="288.0" layoutY="65.0" prefHeight="332.0" prefWidth="810.0">
+                          <columns>
+                            <TableColumn fx:id="score_name_Col" prefWidth="120.0" text="Name" />
+                            <TableColumn fx:id="score_id_Col" prefWidth="100" text="Student's ID" />
+                              <TableColumn fx:id="score_semester_Col" prefWidth="60.0" text="Semester" />
+                              <TableColumn fx:id="score_course1_Col" prefWidth="70.0" text="Course 1" />
+                              <TableColumn fx:id="score_score1_Col" prefWidth="50" text="Score" />
+                              <TableColumn fx:id="score_course2_Col" prefWidth="70.0" text="Course 2" />
+                              <TableColumn fx:id="score_score2_Col" prefWidth="50" text="Score" />
+                              <TableColumn fx:id="score_course3_Col" prefWidth="70.0" text="Course 3" />
+                              <TableColumn fx:id="score_score3_Col" prefWidth="50" text="Score" />
+                              <TableColumn fx:id="score_course4_Col" prefWidth="70.0" text="Course 4" />
+                              <TableColumn fx:id="score_score4_Col" prefWidth="50" text="Score" />
+                              <TableColumn fx:id="score_GPA_Col" prefWidth="50" text="GPA" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="288.0" layoutY="26.0" text="Search by:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="716.0" layoutY="26.0" mnemonicParsing="false" onAction="#score_SearchInfoButtonAction" text="Search" />
+                        <TextField fx:id="score_searchText" layoutX="379.0" layoutY="26.0" />
+                        <ChoiceBox fx:id="score_searchCB" layoutX="543.0" layoutY="26.0" prefWidth="150.0">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Name" />
+                                 <String fx:value="Student's ID" />
+                                 <String fx:value="Semester" />
+                                 <String fx:value="GPA &gt;= n" />
+                              </FXCollections>
+                           </items>
+                        </ChoiceBox>
+                        <Label layoutX="2.0" layoutY="123.0" text="Name" />
+                        <TextField fx:id="score_nameText" editable="false" layoutX="82.0" layoutY="119.0" prefHeight="26.0" prefWidth="175.0" />
+                        <Label layoutX="2.0" layoutY="300.0" prefHeight="18.0" prefWidth="46.0" text="GPA:" />
+                        <TextField fx:id="score_GPAText" editable="false" layoutX="82.0" layoutY="296.0" prefHeight="26.0" prefWidth="125.0" promptText="0.00" />
+                        <Button layoutX="1.0" layoutY="380.0" mnemonicParsing="false" onAction="#score_LoadButtonAction" prefHeight="26.0" prefWidth="50.0" text="Load" />
+                        <Button layoutX="97.0" layoutY="378.0" mnemonicParsing="false" onAction="#score_ClearButtonAction" prefHeight="26.0" prefWidth="50.0" text="Clear" />
+                        <Button layoutX="208.0" layoutY="338.0" mnemonicParsing="false" onAction="#score_DeleteButtonAction" prefHeight="26.0" prefWidth="50.0" text="Delete" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
